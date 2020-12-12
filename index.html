@@ -27,5 +27,21 @@
         <input type="button" onclick="search()" value="Submit">
     </form>
     <p id="song_id"></p>
+    <div id="container">
+        <video autoplay="true" id="videoElement">
+            
+        </video>
+    </div>
+    <script>
+        var video = document.querySelector("#videoElement");
+        if(navigator.mediaDevices.getUserMedia){
+            navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                video.srcObject = stream;
+            })
+            .catch(function(error) {
+        console.log("Something went wrong!");
+        });
+    </script>
 </body>
 </html>
